@@ -37,10 +37,10 @@ class VerificationBoxItem extends StatelessWidget {
   final String data;
   final VerificationBoxItemType type;
   final double borderWidth;
-  final Color borderColor;
+  Color? borderColor;
   final double borderRadius;
-  final TextStyle textStyle;
-  final Decoration decoration;
+  final TextStyle? textStyle;
+  Decoration? decoration;
 
   ///
   /// 是否显示光标
@@ -50,7 +50,7 @@ class VerificationBoxItem extends StatelessWidget {
   ///
   /// 光标颜色
   ///
-  final Color cursorColor;
+  Color? cursorColor;
 
   ///
   /// 光标宽度

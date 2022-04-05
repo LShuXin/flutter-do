@@ -9,22 +9,22 @@ class VerificationBoxCursor extends StatefulWidget {
   ///
   /// 光标颜色
   ///
-  final Color color;
+  Color? color;
 
   ///
   /// 光标宽度
   ///
-  final double width;
+  double? width;
 
   ///
   /// 光标距离顶部距离
   ///
-  final double indent;
+  double? indent;
 
   ///
   /// 光标距离底部距离
   ///
-  final double endIndent;
+  double? endIndent;
 
   @override
   State<StatefulWidget> createState() => _VerificationBoxCursorState();
@@ -32,7 +32,7 @@ class VerificationBoxCursor extends StatefulWidget {
 
 class _VerificationBoxCursorState extends State<VerificationBoxCursor>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {

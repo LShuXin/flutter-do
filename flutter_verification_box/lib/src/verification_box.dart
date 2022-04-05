@@ -41,7 +41,7 @@ class VerificationBox extends StatefulWidget {
   ///
   /// 输入完成回调
   ///
-  final ValueChanged onSubmitted;
+  ValueChanged? onSubmitted;
 
   ///
   /// 每个item的装饰类型，[VerificationBoxItemType]
@@ -51,7 +51,7 @@ class VerificationBox extends StatefulWidget {
   ///
   /// 每个item的样式
   ///
-  final Decoration decoration;
+  Decoration? decoration;
 
   ///
   /// 边框宽度
@@ -61,12 +61,12 @@ class VerificationBox extends StatefulWidget {
   ///
   /// 边框颜色
   ///
-  final Color borderColor;
+  Color? borderColor;
 
   ///
   /// 获取焦点边框的颜色
   ///
-  final Color focusBorderColor;
+  Color? focusBorderColor;
 
   ///
   /// [VerificationBoxItemType.box] 边框圆角
@@ -76,7 +76,7 @@ class VerificationBox extends StatefulWidget {
   ///
   /// 文本样式
   ///
-  final TextStyle textStyle;
+  TextStyle? textStyle;
 
   ///
   /// 输入完成后是否失去焦点，默认true，失去焦点后，软键盘消失
@@ -96,7 +96,7 @@ class VerificationBox extends StatefulWidget {
   ///
   /// 光标颜色
   ///
-  final Color cursorColor;
+  Color? cursorColor;
 
   ///
   /// 光标宽度
@@ -118,9 +118,9 @@ class VerificationBox extends StatefulWidget {
 }
 
 class _VerificationBox extends State<VerificationBox> {
-  TextEditingController _controller;
+  late TextEditingController _controller;
 
-  FocusNode _focusNode;
+  FocusNode? _focusNode;
 
   List _contentList = [];
 
@@ -199,11 +199,10 @@ class _VerificationBox extends State<VerificationBox> {
         ),
       ],
       maxLength: widget.count,
-      buildCounter: (
-        BuildContext context, {
-        int currentLength,
-        int maxLength,
-        bool isFocused,
+      buildCounter: (BuildContext context, {
+        required int currentLength,
+        required int? maxLength,
+        required bool isFocused,
       }) {
         return Text('');
       },
@@ -225,10 +224,10 @@ class _VerificationBox extends State<VerificationBox> {
 
     if (value.length == widget.count) {
       if (widget.unfocus) {
-        _focusNode.unfocus();
+        _focusNode?.unfocus();
       }
       if (widget.onSubmitted != null) {
-        widget.onSubmitted(value);
+        widget.onSubmitted!(value);
       }
     }
   }
